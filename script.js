@@ -52,7 +52,7 @@ buttons.forEach((button) => {
       }
     } else {      
         if( button.id === "dot"){
-          currentInput += button.id;
+          currentInput += button.value;
           resultInput.value += button.value; 
         }else{
         currentInput += button.id;
