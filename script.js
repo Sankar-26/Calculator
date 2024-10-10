@@ -51,13 +51,33 @@ buttons.forEach((button) => {
         resultInput.value += " " + displayOperator + " ";
       }
     } else {      
-        
+        if( button.id === "dot"){
+          currentInput += button.id;
+          resultInput.value += button.value; 
+        }else{
         currentInput += button.id;
         resultInput.value += button.id; // Append input to display
-      
+        }
     }
   });
 });
+
+document.addEventListener('keydown', (event) => {
+  const key = event.key;
+
+  // Check if the key pressed is a number (0-9)
+  if (key >= '0' && key <= '9') {
+      currentInput += key; // Append to current input
+      resultInput.value = currentInput; // Update the display
+  } else if (key === 'Backspace') {
+      currentInput = currentInput.slice(0, -1); // Remove last character
+      resultInput.value = currentInput; // Update the display
+  } else {
+      alert("Only numbers are allowed");
+  }
+});
+
+
 
 function operate(a, b, op) {
   switch (op) {
